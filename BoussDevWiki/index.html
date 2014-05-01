@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>A Novel Boussinesq-type Numerical Wave Model Development (Flood &amp; Coastal - Work Unit) &mdash; Flood and Coastal Work Unit 1.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Flood and Coastal Work Unit 1.0.0 documentation" href="#" />
+    <link rel="next" title="doc" href="api/modules.html" /> 
+  </head>
+  <body>
+<link rel="shortcut icon" href="_static/proteusSimple.ico">
+<div style="background-color: white; text-align: left; padding: 10px 10px 15px 15px">
+<img src="_static/phaseWaveBanner.png" alt="phaseWaveBanner logo" height="140" width="1020"/>
+</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="api/modules.html" title="doc"
+             accesskey="N">next</a> |</li>
+        <li><a href="#">phaseWave home</a>&nbsp;|&nbsp;</li>
+        <li><a href="api/index.html">API</a>&raquo;</li>
+ 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">A Novel Boussinesq-type Numerical Wave Model Development (Flood &amp; Coastal - Work Unit)</a><ul>
+<li><a class="reference internal" href="#motivation">Motivation</a></li>
+<li><a class="reference internal" href="#purpose">Purpose</a></li>
+<li><a class="reference internal" href="#products">Products</a></li>
+<li><a class="reference internal" href="#payoff">Payoff</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#license">License</a></li>
+<li><a class="reference internal" href="#obtaining-phasewave">Obtaining phaseWave</a></li>
+<li><a class="reference internal" href="#git-repository-access">Git Repository Access</a></li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#post-processing">Post-processing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#developer-information">Developer Information</a></li>
+<li><a class="reference internal" href="#contact">Contact</a></li>
+<li><a class="reference internal" href="#contents">Contents</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="api/modules.html"
+                        title="next chapter">doc</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul><h3>Source Code</h3>
+<a href="https://github.com/malej/phaseWave">GitHub </a>
+<br />
+
+<h3>Developers' Mailing List</h3>
+
+<table border=0 style="padding: 5px;" cellspacing=0>
+  <tr><td style="padding-left: 5px">
+  <b>Subscribe to phaseWave-dev</b>
+  </td></tr>
+  <form action="https://groups.google.com/group/phasewave-dev/boxsubscribe">
+  <input type=hidden name="hl" value="en">
+  <tr><td style="padding-left: 5px;">
+  Email: <input type=text name=email>
+  <input type=submit name="sub" value="Go">
+  </td></tr>
+</form>
+<tr><td align=right>
+  <a href="https://groups.google.com/group/phasewave-dev?hl=en">Visit this group</a>
+</td></tr><br /<br />
+</table>
+
+<h3>Links</h3><br />
+<a href="http://www.usace.army.mil">
+<center>
+<img src="_static/red_corps_castle.png" alt="USACE">
+</center>
+</a>
+<br>
+
+<a href="http://chl.erdc.usace.army.mil"> Coastal and Hydraulics Lab </a>
+<br>
+<a href="http://www.erdc.usace.army.mil"> US Army ERDC</a>
+<br>
+<a href="http://www.usace.army.mil"> US Army Corps of Engineers</a>
+<br /><br /><br /><br /><br />
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="a-novel-boussinesq-type-numerical-wave-model-development-flood-coastal-work-unit">
+<span id="intro-sec"></span><h1>A Novel Boussinesq-type Numerical Wave Model Development (Flood &amp; Coastal - Work Unit)<a class="headerlink" href="#a-novel-boussinesq-type-numerical-wave-model-development-flood-coastal-work-unit" title="Permalink to this headline">¶</a></h1>
+<p>PhaseWave is a new open-source phase resolving numerical wave model,
+that is being developed within the numerical modeling strategy in the
+Coastal and Hydraulics Laboratory (CHL) of the U.S. Army Engineering
+Resarch and Development Center (ERDC).</p>
+<p>For now it comprises of two main modules that are based on two open-source
+Boussinesq-type wave formulations - FUNWAVE and COULWAVE (pCOULWAVE - parallel).</p>
+<p>FUNWAVE (<a class="reference external" href="http://chinacat.coastal.udel.edu/programs/funwave/funwave.html">http://chinacat.coastal.udel.edu/programs/funwave/funwave.html</a>)
+is a package for simulating waves in shallow water environment and has been
+written by Jim Kirby et al. The current version of the code that this repository
+contains is version 2.1.</p>
+<p>pCOULWAVE (<a class="reference external" href="http://isec.nacse.org/models/coulwave_download.php">http://isec.nacse.org/models/coulwave_download.php</a>) is also an
+open-source Boussinesq-type phase-resolving numerical wave model, originally
+developed by Patrick J. Lynett and Philip L.-F. Liu. Substantial additions
+and modifications have been implemented by Khairil Irfan Sitanggang and
+Dae-Hong Kim. The current version that is being used is 2.0 (manual), released
+in 2010.</p>
+<p>The phaseWave package suite and various test cases are maintained by Matt Malej under the Flood &amp; Coastal Work Unit - <tt class="docutils literal"><span class="pre">A</span> <span class="pre">novel</span>
+<span class="pre">Boussinesq-type</span> <span class="pre">numerical</span> <span class="pre">wave</span> <span class="pre">model</span> <span class="pre">development</span></tt>.</p>
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>Modeling of nonlinear coastal wave processes, such as inundation, wave runup, bore propagation, tsunami propagation, harbor resonance, ship wakes, and infragravity waves, requires efficient and accurate computing of the evolution of highly nonlinear time-dependent, three-dimensional surface wave fields in various coastal environments.  This is a challenging hydrodynamic problem. Most models commonly used for describing nonlinear surface waves are far from being complete. They rely on ad-hoc models for the physical processes involved, such as nonlinear wave-wave interactions, energy dissipation due to wave breaking, or interplay between waves and currents.</p>
+<p>An additional complication in modeling coastal waves is that there is a wide range of scales to be resolved. The coupling between various modes and thus the energy transfer between different spatial and temporal scales lack a thorough understanding. Operational phase-averaged wave action balance models suffer from inaccurate prediction of the wave spectrum in shallow water. This is often attributed to incomplete modeling of nonlinear interactions (both resonant and non-resonant).</p>
+<p>With improvements in high performance computing, phase-resolving models are becoming more practical to apply. Their primary area of application thus far has been a shallow-water environment. Boussinesq-type models are especially attractive in these regimes, where weak nonlinearity and low dispersion are prevalent. The U.S. Army Corp of Engineers has a pressing need for a robust and computationally efficient phase-resolving numerical wave model. The current state of practice at ERDC-CHL is to use BOUSS-2D in modeling nearshore waves, circulation, and related processes [1-15]. This numerical model has been around for ~20 years and possesses several deficiencies, for instance: the code is not open source and it does not belong to CHL, it runs on a single processor, its integration schemes are primitive and rely on finite-difference methods, plus setup and post-processing requires other proprietary software (e.g., SMS, Matlab®).</p>
+</div>
+<div class="section" id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<p>We proposed that a new phase-resolving numerical wave model be adopted and implemented for use within CHL numerical strategic framework. The purpose of this research and development initiative is to advance the state of the art of the phase-resolving numerical wave models for the Corps. The areas of applicability include: nearshore wind-wave propagation, harbor entrances, nonlinear shoaling, runup, inundation, tsunamis, and ship waves.</p>
+</div>
+<div class="section" id="products">
+<h2>Products<a class="headerlink" href="#products" title="Permalink to this headline">¶</a></h2>
+<p>The deliverable product is a robust phase-resolving numerical wave model, that will be: open-source, parallelized to run on HPC (High Performance Computing) systems, a community based effort, version controlled (Git), written in a higher level languages (C/C++, Python) and interfaced with other lower-level languages (Fortran), implemented to accommodate variable boundaries and topography (finite volume, spectral methods, finite difference, finite element method). Subsequent efforts will explore a stand alone computational interface and a robust UI (User Interface), that should be both intuitive, easy to navigate, and web-based so it can be accessed remotely if desired.</p>
+<p>The developed numerical model will span multiple spatial and temporal scales, which are relevant to coastal and hydrodynamic phenomena normally exhibited in ERDC’s research and development efforts. These processes include, but are not limited to:</p>
+<ul>
+<li><p class="first">Inundation mapping – overland propagation and runup,</p>
+</li>
+<li><p class="first">Bore propagation and waves on highly variable bottom topography,</p>
+</li>
+<li><dl class="first docutils">
+<dt>Harbor resonance and marina infrastructure modification</dt>
+<dd><ul class="first last simple">
+<li>sub-harmonic generation and dissipation</li>
+<li>diffraction</li>
+<li>reflection (variable surfaces)</li>
+<li>channel deepening/widening/realignment</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Transient waves (tsunamis, sneaker waves),</p>
+</li>
+<li><dl class="first docutils">
+<dt>Ship wakes</dt>
+<dd><ul class="first last simple">
+<li>vessel generated waves and effects on shorelines</li>
+<li>vessel generated bed velocities and shear stresses</li>
+<li>vessel interactions with other vessels and with locks and dams.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>The broader impact of this project is the advancement of state of the art of Boussineq-type (phase-resolving) numerical wave modeling, as well as analysis and decision support.</p>
+</div>
+<div class="section" id="payoff">
+<h2>Payoff<a class="headerlink" href="#payoff" title="Permalink to this headline">¶</a></h2>
+<p>The immediate benefits will be more accurate and efficient applications to: harbor and marina infrastructure, inundation mapping – overland propagation and runup, vessel generated waves and effects on shorelines, and waves on reefs. The broader impact will be in improved risk communication and risk informed decision making. The computational ease of use will be critical to the Corps District users, which rely on a user-friendly interface. Flexible gridding will allow for greater computational utility, as other high-fidelity and phase-averaged models within CHL will have a clear pathway for communication and two-way dynamic coupling. Consequently, this initiative will push CHL towards the forefront of computational phase-resolving wave modeling.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The original <tt class="docutils literal"><span class="pre">phaseWave</span></tt> package was written by <tt class="docutils literal"><span class="pre">Matt</span> <span class="pre">Malej</span></tt>, with its main modules <tt class="docutils literal"><span class="pre">funwaveModule</span></tt> and <tt class="docutils literal"><span class="pre">coulwaveModule</span></tt> written by James Kirby et al. and Patrick Lynett et al., respectively.</p>
+</div>
+</div>
+</div>
+<div class="section" id="license">
+<h1>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h1>
+<p>FUNWAVE is licensed under GNU - General Pulic License. The source can be obtained
+directly from the FUNWAVE website. COULWAVE (pCOULWAVE) is open source with no official license.</p>
+</div>
+<div class="section" id="obtaining-phasewave">
+<span id="obtaining-sec"></span><h1>Obtaining phaseWave<a class="headerlink" href="#obtaining-phasewave" title="Permalink to this headline">¶</a></h1>
+<p>For now, <tt class="docutils literal"><span class="pre">phaseWave</span></tt> is only available to developers as source from our
+git repository (<a class="reference internal" href="#git-sec"><em>Git Repository Access</em></a>). The currently supported platforms are:</p>
+<div class="highlight-python"><pre>* Linux
+* Mac OSX
+* Garnet (ERDC HPC system) under GNU, Intel, PGI compiler suites.</pre>
+</div>
+<p>The result is a portable compilation process.</p>
+</div>
+<div class="section" id="git-repository-access">
+<span id="git-sec"></span><h1>Git Repository Access<a class="headerlink" href="#git-repository-access" title="Permalink to this headline">¶</a></h1>
+<p>The source code is available on github at: <tt class="docutils literal"><span class="pre">https://github.com/malej/phaseWave</span></tt>
+See <tt class="docutils literal"><span class="pre">http://help.github.com</span></tt> for help on using git and github.</p>
+<p>If you have setup Git on your system and have been granted acces to <tt class="docutils literal"><span class="pre">phaseWave</span></tt>
+repository, do the following:</p>
+<div class="highlight-python"><pre>%cd $HOME
+%git clone git@github.com:malej/phaseWave.git</pre>
+</div>
+<p>That will create phaseWave directory on in your home directory.</p>
+</div>
+<div class="section" id="installation">
+<span id="installing-sec"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>Build instructions for <tt class="docutils literal"><span class="pre">phaseWave</span></tt> are available on our wiki
+<tt class="docutils literal"><span class="pre">https://github.com/malej/phaseWave/wiki</span></tt>, and you can ask for help on
+the developers&#8217; mailing list
+<tt class="docutils literal"><span class="pre">http://groups.google.com/group/phasewave-dev/subscribe</span></tt>.</p>
+<p>At the moment we are working on automating the build process on our systems and
+will provide <tt class="docutils literal"><span class="pre">MAKEFILES</span></tt> for various platforms [WIP = Work In Progress]</p>
+<ul class="simple">
+<li>Linux (Ubuntu, etc.)</li>
+<li>OS X (Snow Leopard, Mountain Lion, Mavericks)</li>
+<li>ERDC DSRC (High Performance Computting - HPC system: Garnet)</li>
+<li>Windows ... eventually</li>
+</ul>
+<p>Note that you will have to set a system variable <tt class="docutils literal"><span class="pre">PHASEWAVE</span></tt> to point wherever you cloned the reposity. If you cloned it to your home directory, then in <tt class="docutils literal"><span class="pre">bash</span></tt> do the following:</p>
+<div class="highlight-python"><pre>export PHASEWAVE=$HOME/phaseWave
+source $PHASEWAVE/envConfig/YOURSYSTEM.bash</pre>
+</div>
+<p>where you would replace <tt class="docutils literal"><span class="pre">YOURSYSTEM</span></tt> with either</p>
+<ul class="simple">
+<li>linux</li>
+<li>darwin (Mac OS X)</li>
+<li>garnet.gnu</li>
+<li>garnet.intel</li>
+<li>garnet.pgi</li>
+</ul>
+<div class="section" id="post-processing">
+<h2>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this headline">¶</a></h2>
+<p>Currently there are native post-processing scripts supplied with both FUNWAVE and COULWAVE, but we are working on transitioning all of our post-processing scripts to an open-source platform (e.g. Matplotlib, ParaView, etc.).</p>
+</div>
+</div>
+<div class="section" id="developer-information">
+<h1>Developer Information<a class="headerlink" href="#developer-information" title="Permalink to this headline">¶</a></h1>
+<p>The source code, wiki, and issue tracker for this ERDC adaptation of</p>
+<ul class="simple">
+<li>FUNWAVE&#8217;s version 2.1 of Jim Kirby et al. are</li>
+<li>pCOLWAVE version 2.0 of Patrick Lynett et al.</li>
+</ul>
+<p>are on Github at <a class="reference external" href="https://github.come/malej/phaseWave">https://github.come/malej/phaseWave</a>.</p>
+<p>The developers&#8217; mailing is at <a class="reference external" href="http://groups.google.com/group/proteus-dev">http://groups.google.com/group/proteus-dev</a>.</p>
+<p>Access to this repository is private and requires approval at this time.</p>
+</div>
+<div class="section" id="contact">
+<h1>Contact<a class="headerlink" href="#contact" title="Permalink to this headline">¶</a></h1>
+<p>For questions on the working version of this ERDC project contact the PI -
+Matt Malej (<a class="reference external" href="mailto:matt&#46;malej&#37;&#52;&#48;erdc&#46;dren&#46;mil">matt<span>&#46;</span>malej<span>&#64;</span>erdc<span>&#46;</span>dren<span>&#46;</span>mil</a>)</p>
+</div>
+<div class="section" id="contents">
+<h1>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">doc</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/references.html">References</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/references.html#bouss2d">BOUSS2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/references.html#coulwave">COULWAVE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/references.html#funwave">FUNWAVE</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="api/modules.html" title="doc"
+             >next</a> |</li>
+        <li><a href="#">phaseWave home</a>&nbsp;|&nbsp;</li>
+        <li><a href="api/index.html">API</a>&raquo;</li>
+ 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Matt Malej and Jane Smith.
+      Last updated on May 01, 2014.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
+    </div>
+  </body>
+</html>

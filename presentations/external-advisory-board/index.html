@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+     <head>
+         <meta charset="utf-8" />
+         <meta name="viewport" content="width=1024" />
+         <meta name="apple-mobile-web-app-capable" content="yes" />
+         <title>External Advisory Panel Meeting Presentation - May 22, 2014</title>
+
+	 <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
+	 <meta name="author" content="Matt Malej" />
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	 <script type="text/x-mathjax-config">
+	   MathJax.Hub.Config({
+	   extensions: ["tex2jax.js"],
+	   jax: ["input/TeX","output/HTML-CSS"],
+	   tex2jax: {inlineMath: [["$","$"],["\\(","\\)"]]}
+	   });
+	 </script>
+	 <script type="text/javascript" src="../../MathJax/MathJax.js"></script>
+
+	 <style>
+	   h1 {text-align:center}
+	   h2 {
+	   font-weight: bold;
+	   background-color: #DDDDDD;
+	   padding: .2em .5em;
+	   margin-top: 1.5em;
+	   border-top: 3px solid #666666;
+	   border-bottom: 2px solid #999999;
+	   }
+	   #left {
+            float:left;
+            width:180px;
+      	   }
+           #right {
+            width: 100%;
+           }
+	 </style>
+
+
+	 <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+	 <link href="css/impress-demo.css" rel="stylesheet" />
+	 <link rel="shortcut icon" href="favicon.png" />
+	 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+     </head>
+
+     <body>
+       <noscript>
+	 <div style="color:#CC0000; text-align:center">
+	   <b>Warning: <a href="http://www.mathjax.org/">MathJax</a>
+	     requires JavaScript to process the mathematics on this page.<br />
+	     If your browser supports JavaScript, be sure it is enabled.</b>
+	 </div>
+	 <hr>
+       </noscript>
+
+	<div id="impress" class="impress-not-supported">
+<!--	<div class="fallback-messge">
+	   <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+	   <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+	</div>
+-->
+	  <div id="bored" class="step slide" data-x="-1000" data-y="-500">
+	    <h1><font size="20"> External Advisory Board Meeting</font></h1><br>
+	    <center><h2>  Boussinesq-type (Phase-Resolving) Numerical Wave Model Development Effort </h2></center><br><hr />
+	    <center>
+	    <img src="img/erdc_logo.png" width="300" height="300" alt="ERDC Logo" />
+	    </center>
+	    <div id="left">
+	      May 22, 2014
+	    </div>
+	    <div align="right">
+	      <b>Matt Malej</b> &nbsp; &amp; &nbsp; <b>Jane Smith  --  CHL</b>
+	    </div>
+	  </div>
+
+
+	  <div class="step slide" data-x="0" data-y="-500">
+	    <h2> Meeting Agenda </h2>
+	      <center><img src="img/agenda-no-title.png" width="800" height="600" alt="Meeting Agenga" /></center>
+	  </div>
+<!--	  <div class="step slide" data-x="0" data-y="-500">
+	    <h2> Meeting Agenda </h2><br /><br />
+	    <div>
+	      <ul>
+	      <li> 1:00pm - <b>Opening Presentation</b> <br /> 
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Matt Malej and Jane Smith)</li><br />
+	      <li> 1:30pm - <b> Input: </b> Jeff Melby</li><br />
+	      <li> 1:40pm - <b> Input: </b> Brad Johnson</li><br />
+	      <li> 1:50pm - <b> Input: </b> Chris Massey</li><br />
+	      <li> 2:00pm - General Discussion</li>
+	      </ul>
+	    </div>
+	  </div>
+-->
+	  <div class="step slide" data-x="1000" data-y="-500">
+	    <h2> Statements of Need </h2>
+	    <div style="font-size: 14pt">
+	      
+	      <ul id="myUL"> <b>Applications</b>
+		<li> Levee, flood wall, barrier, revetment, breakwater design (coastal and inland)</li>
+		<ul id="myUL">
+		  <li> Runup </li>
+		  <li> Overtopping </li>
+		  <li> Structure loading (wave forces) </li>
+		  <li> Frictional dissipation </li>
+		  <li> Complex geometries - reefs, levees, channels, etc. </li>
+		</ul>
+		<li> Inundation mapping - overland propagation and runup </li>
+		<li> Harbor resonance, harbor and marine infrastructure modifications </li>
+		<li> Transient waves (tsunamis, sneaker waves)
+		<li> Ship wakes </li>
+		<ul id="myUL">
+		  <li> Vessel generated waves and effects on shorelines </li>
+		  <li> Vessel generated bed velocities and shear stresses </li>
+		</ul>
+	      </ul>
+	     
+	    </div>
+	  </div>
+
+	  <div class="step slide" data-x="2000" data-y="-500">
+	       <h2> Statements of Need (cont.) </h2>
+	       <div style="font-size: 14pt">
+		 <ul id="myUL">
+		 <li>Validated and well documented model</li>
+		 <li> Computational considerations and <u>parallel</u> implementaion </li>
+		 <ul id="myUL"> 
+		   <li> Computational efficienty (HPC systems) </li>
+		   <li> Deployability (less platform dependence) </li>
+		   <li> User-friendly interface that Districts can apply </li>
+		   <li> Dynamically coupled to other (CHL) models, e.g. phase-averaged models.
+		 </ul>
+		 <li> Nonproprietary (Open Source) code base! </li>
+		 <li> In line with CHL Numerical Modeling Strategy. </li>
+		 </ul>
+	       </div>
+	</div>
+
+	  <div class="step slide" data-x="3000" data-y="-500">
+	    <h2> Model Attributes and Limitations </h2>
+	    <table id="myTable" style="font-size: 8pt;">
+	      <tr>
+		<th id="myTH"> </th>
+		<th id="myTH"> &nbsp;&nbsp;&nbsp; BOUSS-2D &nbsp;&nbsp;&nbsp; </th>
+		<th id="myTH"> &nbsp;&nbsp;&nbsp; COULWAVE &nbsp;&nbsp;&nbsp; </th>
+		<th id="myTH"> &nbsp;&nbsp;&nbsp; FUNWAVE &nbsp;&nbsp;&nbsp; </th>
+	      </tr>
+	      <tr>
+		<th id="newTH"> <b> Accuracy </b> </th>
+		<th id="newTH"> \( (kh)^2 \) </th>
+		<th id="newTH"> \( (kh)^2 \) </th>
+		<th id="newTH"> \( (kh)^2 \) </th>
+	      </tr>
+	      <tr>
+		<th id="newTH"> <b>Open Source</b> </th>
+		<th id="newTH"> NO </th>
+		<th id="newTH"> YES (no license)</th>
+		<th id="newTH"> YES (GNU General Public License)</th>
+	      </tr>
+	      <tr>
+		<th id="newTH"> <b>Numerical Scheme</b></th>
+		<th id="newTH"> Finite difference; 3rd order Crank-Nicholson</th>
+		<th id="newTH"> Finite difference; Finite Volume; MUSCLE-TVD; 4th order in time </th>
+		<th id="newTH"> Finite difference; MUSCLE-TVD; RK4 in time</th>
+	      </tr>
+	      <tr>
+		<th id="newTH"> <b> Parallel </b> </th>
+		<th id="newTH"> NO </th>
+		<th id="newTH"> YES (MPI)</th>
+		<th id="newTH"> YES (MPI)</th>
+	      </tr>
+	      <tr>
+		<th id="newTH"> <b> Grid</b> </th>
+		<th id="newTH"> Cartesian</th>
+		<th id="newTH"> Cartesian</th>
+		<th id="newTH"> Cartesian and Spherical Polar</th>
+	      </tr>
+	      <tr>
+		<th id="newTH"> <b> Support Software</b> </th>
+		<th id="newTH"> SMS </th>
+		<th id="newTH"> MATLAB (grid generation and visualization)</th>
+		<th id="newTH"> MATLAB (grid generation and visualization)</th>
+	      </tr>
+	      <tr>
+		<th id="newTH"> <b> LIMITATIONS </b> </th>
+		<th id="newTH"> <ul id="myUL">
+		    <li> research-based code </li>
+		    <li> NOT open source ($$) </li>
+		  </ul>
+		</th>
+		<th id="newTH"> <ul id="myUL">
+		    <li> Fortran77/90 </li>
+		    <li> compiles only on PGI compilers (ERDC HPC) </li>
+		    <li> no version control </li>
+		    <li> community not very active (devel. and users)</li>
+		    <li> relies on MATLAB with additional toolboxes </li>
+		    <li> text-based input user-interface </li>
+		    <li> ASCII output; *software-carpentry </li>
+		</ul></th>
+		<th id="newTH"> <ul id="myUL">
+		    <li> few source files (needs modularity) </li>
+		    <li> ASCII files for output & text-based input</li>
+		    <li> post-processing relies on MATLAB toolboxes</li>
+		    <li> computes on 2 or 4 cores <b>ONLY</b> (MPI) </li>
+		    <li> system specific Makefiles NOT present </li>
+		    <li> *better software-carpentry practices
+		</ul></th>
+	      </tr>
+	      <tr>
+		<th id="newTH"> <b> </b> </th>
+		<th id="newTH"> </th>
+		<th id="newTH"> </th>
+		<th id="newTH"> </th>
+	      </tr>
+	    </table>
+	  </div>
+
+
+	<!-- This element introduces rotation -->
+    <div id="its" class="step" data-x="850" data-y="5000" data-rotate="180" data-scale="1">
+      <h2> Internal (CHL) Advisory Board </h2>
+      <ul id="myUL">
+	<li> <a>Dr. Jeffrey Melby</a> </li>
+	<li> <a>Dr. Chris Massey</a> </li>
+	<li> <a>Dr. Bradley Johnson</a> </li>
+	<li> <a>Dr. Zeki Demirbilek</a> </li>
+	</ul>   
+      <div style="font-size: 20pt">\(\to\) Test/Validation Cases, Capabilities, Field Group Suggestions.</div>
+    </div>
+
+    <div class="step slide" data-x="850" data-y="6000" data-scale="1">
+      <h2> Internal (CHL) Advisory Board -- Input from:  <b>Jeff Melby</b> </h2>
+      <div style="font-size:12pt">
+      <ul id="myUL">
+	<li> seamless set of tools that can answer a question/problem with variable level of fidelity </li>
+	<li> need for sloped, vertical, stepped, and recurved structures </li>
+	<li> usability classification of the model and technology limitations (when, where and for what
+type of problems is this model suitable; need guidance on what level of fidelity must be
+used and why)</li>
+	<li> this model should be good for coastal set of problems (step levee, overtopping, runup,
+etc.) </li>
+	<li> consider the difference in applicability when it comes to: analysis (higher fidelity) & design
+(lower fidelity).</li>
+	<li> Good gridding tools are needed w/in SMS (Aquaveo) </li>
+	<li> 1D transect model to replace WHAFIS is needed </li>
+	<li> Problems that should be addressed by this effort/model are (see CEM Chap 6): </li>
+	<ul id="myUL">
+	  <li> diffraction and harbor resonance </li>
+	  <li> conical island </li>
+	  <li> porous and rough surface </li>
+	  <li> partial depth walls, vented walls </li>
+	  <li> levee </li>
+	  <li> runup, overtopping and transmission, vegetation </li>
+	</ul>
+      </ul>
+      </div>
+    </div>
+
+    <div class="step slide" data-x="850" data-y="7000" data-scale="1">
+      <h2> Internal (CHL) Advisory Board - Input from:  <b>Chris Massey</b>  </h2><br />
+      <div style="font-size:18pt">
+      <ul id="myUL">
+	<li> user friendly web-­based interface </li>
+	<li> need to get robust post-­processing tool up early </li>
+	<li> FEMA and NCAR needs a good model setup (SMS has been doing that) </li>
+	<li> you need a matrix/table with models and their areas of applicability </li>
+	<li> (model coupling) need tools to go from phase-­averaged models to phase-­resolving model </li>
+	<li> modularize and de­globalize the code (make local) </li>
+	<li> have setup, grid generation, and postprocessing scripts standardized and
+distributed with non­proprietary packages (do NOT rely on expensive MATLAB
+toolboxes) </li>
+      </ul>
+      </div>
+    </div>
+
+    <div class="step slide" data-x="850" data-y="8000" data-scale="1">
+      <h2> Internal (CHL) Advisory Board - Input from:  <b>Brad Johnson</b> </h2><br />
+      <div style="font-size:14pt">
+      <ul id="myUL">
+	<li> usability is crucial but generally not fun to implement/document </li>
+	<li> model needs more of emphasis/attention on wave breaking (not always ad­hoc methods) </li>
+	<li> studying ocean morphology and bottom topography via phase­resolving wave models </li>
+	<li> nearshore applications of interest:</li>
+	<ul id="myUL">
+	  <li> wave breaking </li>
+	  <li> runup </li>
+	  <li> turbulence enhanced friction </li>
+	  <li> mixed time scales </li>
+	  <li> swash zone (critical)</li>
+	</ul>
+	<li> flexibility with design and implementation of boundary conditions (offshore) and having
+models coupled and interacting at the boundary and/or nested grids </li>
+	<li> increasing value of the $kh = \frac{h}{\lambda}$ to explore other regions of depth validity (not just shallow water)</li>
+      </ul>
+      </div>
+    </div>
+
+    <div id="step" class="step" data-x="850" data-y="9000"  data-scale="1">
+      <h1><b> General Discussion with Q&A </b></h1>
+      <br /><br /><br />
+      <div style="font-size=6pt">
+	<center><h5>...short recess</h5></center>
+      </div>
+    </div>
+
+
+	  <div id="title" class="step" data-x="7000" data-y="-500" data-scale="1.7">
+	    <h2> Model Development Roadmap </h2>
+	    <div style="font-size: 19pt">
+	    <ul id="myUL">
+	      <li> High-level parallelization and optimization of target source code (FUNWAVE) - have fewer stand alone numerical models out there! </li>
+	      <li> Support for distribution on moder HPC (High Performance Computing) systems, such as ERDC's Garnet. </li>
+	      <li> Establishment of I/O standards (XDMF - xmf, HDF5), code release criteria, validation/testing, and distributed version control (Git). </li>
+	      <li> Utlization of a robust build system (e.g. HashDist) that allows for seamless support for continuously changing environments/system and external packages or libraries.</li>
+	      <li> Friendly user-interface that is not system dependent (e.g. web-based IPython Notebook)</li>
+	      <li> Varying orders of model  accuracy and nonlinearity (order of expansion), as well as shallow, intermediate/finte, and deep water limits interacting models. </li>
+	      <li> Flexible gridding, although the added complexity could counter balance reductions in computations cells/elements for typical Corps applications.</li>
+	      </ul>
+	    </div>
+	  </div>
+
+	  <div class="step slide" data-x="4000" data-y="-500">
+	   <h2>Boussinesq-type (Weakly Nonlinear) Equations</h2>
+	   <p><font size="4">Boussinesq-type equations rely on removal of third dimension \(3D \to 2D\) by expanding the canonical variable (velocity potential \(\phi\)) about an arbitrary depth \(z_\alpha\). Plus the dispersion relation \(\omega^2 = gk \tanh(kh) \) is expanded in powers of \(kh\), thus for small \(kh\) one can write 
+	       <font size="3">\[ \tanh(kh) = kh - \frac{1}{3}(kh)^3 + \frac{2}{15}(kh)^5 - \frac{17}{315}(kh)^7 + \mathcal{O}((kh)^9) \]</font>
+	       </font></p><br />
+	   <p><font size="3"> The volicty potential can be written as
+	     \begin{equation}\label{eqn:velPotential}
+	      \phi = \phi_\alpha + \mu^2\left[ (z_\alpha-z)\nabla \cdot (h\nabla\phi_\alpha) + \frac{1}{2}({z_\alpha}^2 -z^2)\nabla^2\phi_\alpha \right] + \mathcal{O}(\mu^4)
+	     \end{equation}
+	   </font></p>
+	   <center>
+	     <img src="img/schematic.png" width="510" height="210" alt="Schematic" />
+	   </center>
+	   <p><font size="3"> Where  \( \ \mu = kh \ \) and \( \ k = \frac{2\pi}{\lambda}\). With free-surface BCs you recover evolution equations for \(\phi_t\) and \(\zeta_t\).
+	  </div>
+
+	  <div class="step slide" data-x="5000" data-y="-500">
+	    <h2>Additional Models of Interest (3rd order)</h2>
+	    <p><font size="3">
+	      Higher-Order Spectral Method (Fourier and Chebyshev) with <a>full dispersion relation</a> and <a>variable order of nonlinearity</a> \(\left(\epsilon=ka=\frac{2\pi\, a}{\lambda}\right)\) would yield evolution equations accurate to 3rd order in wave steepness and have <a>no depth restriction</a> (shallow, finite, deep)
+	      \begin{equation}\label{Fully2D_Model_A}
+	      \frac{\partial \zeta}{\partial t} = - \mathcal{L}[\Phi] - \nabla (\zeta \nabla \Phi) - \mathcal{L}[\zeta \mathcal{L}[\Phi]] - \nabla^2 \left( \frac{\zeta^2}{2} \mathcal{L}[\Phi] \right) - \mathcal{L} \left[ \frac{\zeta^2}{2} \nabla^2 \Phi + \zeta \mathcal{L}[\zeta \mathcal{L}[\Phi]] \right] + O(\epsilon^4), 
+	      \end{equation}
+
+	      \begin{equation}\label{Fully2D_Model_B}
+	      \frac{\partial \Phi}{\partial t} = - g\zeta - \frac{1}{2} |\nabla \Phi |^2 + \frac{1}{2} \left( \mathcal{L}[\Phi] \right)^2 + \mathcal{L}[\Phi] \left( \zeta \nabla^2\Phi + \mathcal{L}[\zeta \mathcal{L}[\Phi]] \right) + O(\epsilon^4),
+	      \end{equation}
+
+	      where the operator \(\mathcal{L}\) takes on the following form in Fourier \((\mathcal{F})\) space
+	      \[
+	      \mathcal{F} \left[ \, \mathcal{L}[\Phi] \, \right] = - \kappa \, \tanh (\kappa h) \hat{\Phi}, \ \ \ {\rm{where}} \ \ \ 
+	      \kappa = \sqrt{k_x^2 + k_y^2}  \ \ \ \ {\rm{and}} \ \ \ \ \hat{\Phi} = \mathcal{F}[\Phi].
+	      \]
+	    </font></p>
+
+	    <h2>Fast Pseudo-Spectral Numerical Scheme (via FFT)</h2>
+	    <p><font size="2">
+	      \begin{equation}\label{Fourier_Series_A}
+	      \zeta(x,y,t) \ = \ \sum_{m=-\frac{N_x}{2}}^{\frac{N_x}{2}} \sum_{n=-\frac{N_y}{2}}^{\frac{N_y}{2}} a_{mn}(t) \, {\rm{e}}^{{\rm{i}}(m \Delta k_x \, x+n \Delta k_y \, y)} 
+	      \end{equation}
+
+	      \begin{equation}\label{Fourier_Series_B}
+	      \Phi(x,y,z=\zeta,t) \ = \ \sum_{m=-\frac{N_x}{2}}^{\frac{N_x}{2}} \sum_{n=-\frac{N_y}{2}}^{\frac{N_y}{2}} b_{mn}(t) \, {\rm{e}}^{{\rm{i}}(m \Delta k_x \, x+n \Delta k_y \, y)} 
+	      \end{equation}
+
+	    </font></p>
+	  </div>
+
+
+    
+    <div id="slide" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
+      <h2> Develop./Testing/Valid. Progress</h2>
+      <div style="font-size:14pt">
+	<ul id="myUL">
+	  <li> <b>Computational Framework</b> </li>
+	    <ul id="myUL">
+	      <li> Private Github Repository: <a href="https://github.com/malej/phaseWave">https://github.com/malej/phaseWave</a></li>
+	      <li> Project Development Wiki: <a href="http://malej.github.io/BoussDevWiki">http://malej.github.io/BoussDevWiki</a></li>
+	      <li> System-specific builds (Makefiles) for <b>Linux</b>, <b>Mac OSX</b>, <b>Garnet-gnu/intel/pgi</b> </li>
+	      <li> External Packages included with distribution framework - Open Source (Python, IPython, Sphinx, SciPy, NumPy, Cython, Pandas, PyTables, FFTW, XDMF, Nose, MPICH, MPI4py, Matplotlib, etc.)</li>
+	    </ul>
+	  <li> <b>FUNWAVE</b> </li>
+	    <ul id="myUL">
+	      <li> Model built on Linux and Mac OSX (GNU and Intel compilers) and ERDC Garnet.</li>
+	      <li> Verified supplied test example (serial, parallel, cartesian, polar). </li>
+	      <li> Postprocessing in MATLAB done with supplied scripts (toolbox permitting).</li>
+	      <li> Sample <b>web-based UI built</b> via IPython Notebook (setup, run, postprocessing).</li>
+	    </ul>
+	  <li> <b>COULWAVE</b> </li>
+	    <ul id="myUL">
+	      <li> Built on ERDC Garnet with PGI compilers ONLY.</li>
+	      <li> Validated several test cases with MATLAB scripts (toolbox permitting). </li>
+	    </ul>
+	</ul>
+<font size="3"><a>Planning to test</a>: <b>(i)</b> breaking waves on beach, <b>(ii)</b> wave shaoling for random waves, <b>(iii)</b> wave propagation overa a shaol, <b>(iv)</b> wave runup on a beach/shelf, <b>(v)</b> solitary waves on conical island, <b>(vi)</b> various wave inputs: (a) sinusoidal monochromatic wave, (b) modulated wavetrain, (c) Stokes waves, (d) solitary waves, (e) realistic wave field (e.g. JONWSAP spectrum with directional distribution)  -- all 1D and 2D oblique.</font>
+      </div>
+    </div>
+
+
+
+    <div class="step slide" style="font-size: 36pt" data-x="6500" data-y="5100" data-rotate="180" data-scale="2">
+      <h2> External Advisory Panel </h2><br />
+      <div style="font-size:30pt">
+      <ul id="myUL">
+	<li> <a href="http://chinacat.coastal.udel.edu">Dr. James Kirby </a> </li><br />
+	<li> <a href="http://engineering.nd.edu/profiles/akennedy">Dr. Andrew Kennedy </a> </li><br />
+	<li> <a href="http://coastal.usc.edu/plynett/">Dr. Patrick Lynett </a> </li><br />
+	<li> <a>Dr. Fengyan Shi</a></li><br />
+      </ul>
+      </div>
+      <div style="font-size: 14pt">\(\to\) Research and Numerical Model Development Strategic Plan Input</div>        
+      </div>
+
+
+
+
+    <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
+        <p>Thank you for your attention...</p><br /><br /><br /><br /><br /><br /><br />
+    </div>
+
+    <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="4">
+        <p><span class="have">Now we</span> <span class="you">need</span> <span class="noticed">your input</span> <span class="its">and suggestions</span> <span class="in">for test cases, </span> <b>  capabilities, field group formation/personnel.<sup>*</sup></b></p>
+        <span class="footnote" style="font-size:14pt">* planned External Advisory Panel meeting at Univ. of Del. (May, 2014) </span>
+    </div>
+    
+    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+    </div>
+
+</div>
+
+
+
+	<div class="hint">
+	  <p>Use a spacebar or arrow keys to navigate</p>
+	</div>
+
+	<script>
+	  if ("ontouchstart" in document.documentElement) { 
+	  document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+	</script>
+
+	<script src="js/impress.js"></script>
+	<script>impress().init()</script>
+
+     </body> 
+</html>
